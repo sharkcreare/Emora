@@ -1,0 +1,35 @@
+# Node
+node_modules/
+dist/
+out/
+*.local
+.npmrc
+
+# Electron
+frontend/out/
+frontend/dist/
+frontend/打包文件夹/
+# 旧打包产物目录（已废弃，被 打包文件夹 取代）
+frontend/release/
+
+# Java / Maven
+backend/target/
+*.class
+*.jar
+
+# Code signing (self-signed cert contains a private key - never commit)
+certs/
+*.pfx
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

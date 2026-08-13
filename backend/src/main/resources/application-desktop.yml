@@ -1,0 +1,62 @@
+# desktop profile：随桌面端安装包内置运行（由 Electron 主进程自动拉起）
+# 使用 H2 文件库，收藏/最近使用等数据持久化到用户目录（默认 ${user.home}/.emoji-assistant/）
+# 安装包内主进程会通过 --spring.datasource.url 覆盖库文件位置（放到 Electron userData 目录）
+server:
+  address: 127.0.0.1
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:${user.home}/.emoji-assistant/emoji_assistant;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password: ""
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema-h2-file.sql
+      data-locations: classpath:db/data-h2-file.sql,classpath:db/data-real.sql
+      continue-on-error: true
+  data:
+    redis:
+      # 桌面模式无 Redis，缓存自动降级直查数据库
+      host: 127.0.0.1
+      port: 6379
+
+network-search:
+  # 总开关默认打开：内置中文梗图库（ChineseBQB）开箱即用；
+  # Giphy / Tenor 需在 %APPDATA%/emoji-assistant-frontend/config/application-desktop.yml 填入 API Key 后自动启用
+  enabled: true
+  limit: 100
+  timeout-ms: 4000
+  # 内置中文梗图库（ChineseBQB，jsdelivr CDN 加载，无需 Key）
+  chinesebqb:
+    enabled: true
+  # 免费搜狗表情包（接口盒子聚合，公开演示凭据，无需 Key；依赖第三方共享频次）
+  sogou:
+    enabled: true
+    id: "88888888"
+    key: "88888888"
+    base-url: https://cn.apihz.cn/api/img/apihzbqbsougou.php
+  # 百度图库实时通道（接口盒子 apihzbqbbaidu，IP 直连集群，免 Key；图片为百度图床实时搜索结果，内容新、更新快）
+  baidu:
+    enabled: true
+    id: "88888888"
+    key: "88888888"
+    base-urls:
+      - http://101.35.2.25
+      - http://124.222.204.22
+      - http://101.34.207.105
+  # 萌芽梗图浏览（meme.smyhub.com，2600+ 梗图，50 分类，免 Key，仅浏览）
+  mengya:
+    enabled: true
+  giphy:
+    api-key: ""
+    base-url: https://api.giphy.com/v1/stickers
+    rating: g
+  tenor:
+    api-key: ""
+    base-url: https://tenor.com/v2
+    content-filter: medium
+
+logging:
+  level:
+    com.emojiassistant: info

@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "labels": [
+    {
+      "id": "emo_speechless",
+      "name": "无语",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达无语、无奈、不想说话情绪的表情包图片",
+      "aliases": ["服了", "无奈", "无话可说"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_angry",
+      "name": "生气",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达生气、愤怒、恼火情绪的表情包图片",
+      "aliases": ["愤怒", "发火", "恼火"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_happy",
+      "name": "开心",
+      "layer": "L1",
+      "category": "funny",
+      "textPrompt": "一张表达开心、高兴、大笑情绪的表情包图片",
+      "aliases": ["高兴", "大笑", "快乐", "哈哈"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_shocked",
+      "name": "震惊",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达震惊、惊讶、不敢相信表情的表情包图片",
+      "aliases": ["惊讶", "吃惊", "卧槽", "吓到"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_awkward",
+      "name": "尴尬",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达尴尬、不好意思、难为情情绪的表情包图片",
+      "aliases": ["不好意思", "难为情", "汗"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_socialdeath",
+      "name": "社死",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达社会性死亡、丢脸、出丑尴尬场景的表情包图片",
+      "aliases": ["丢脸", "出丑", "丢人"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_collapse",
+      "name": "崩溃",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达崩溃、心态崩了、受不了情绪的表情包图片",
+      "aliases": ["崩了", "心态炸了", "裂开"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_scared",
+      "name": "害怕",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达害怕、恐惧、惊恐情绪的表情包图片",
+      "aliases": ["恐惧", "惊恐", "吓人"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_sad",
+      "name": "委屈",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达委屈、难过、想哭情绪的表情包图片",
+      "aliases": ["难过", "伤心", "想哭"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_confused",
+      "name": "疑惑",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达疑惑、疑问、困惑不解表情的表情包图片",
+      "aliases": ["疑问", "困惑", "问号"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_sarcastic",
+      "name": "嘲讽",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达嘲讽、嘲笑、鄙视、看不起表情的表情包图片",
+      "aliases": ["嘲笑", "鄙视", "看不起", "呵呵"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_passiveaggressive",
+      "name": "阴阳怪气",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达阴阳怪气、明褒暗贬、讽刺意味的表情包图片",
+      "aliases": ["阴阳", "暗讽", "内涵"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_slacking",
+      "name": "摸鱼",
+      "layer": "L1",
+      "category": "funny",
+      "textPrompt": "一张表达摸鱼、偷懒、划水不想干活的表情包图片",
+      "aliases": ["划水", "偷懒", "不想上班"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_overtime",
+      "name": "加班",
+      "layer": "L1",
+      "category": "funny",
+      "textPrompt": "一张表达加班、打工很累、不想工作的表情包图片",
+      "aliases": ["打工", "上班累", "辛苦"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_sleepy",
+      "name": "困",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达困倦、想睡觉、打哈欠表情的表情包图片",
+      "aliases": ["困了", "想睡", "打哈欠"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_tired",
+      "name": "累",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达疲惫、劳累、筋疲力尽表情的表情包图片",
+      "aliases": ["疲惫", "好累", "筋疲力尽"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_crying",
+      "name": "哭",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达大哭、哭泣、泪流满面表情的表情包图片",
+      "aliases": ["哭泣", "大哭", "泪目"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "emo_love",
+      "name": "喜欢",
+      "layer": "L1",
+      "category": "emoji",
+      "textPrompt": "一张表达喜欢、爱慕、心动、比心表情的表情包图片",
+      "aliases": ["爱你", "心动", "比心", "亲亲"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_cat",
+      "name": "猫",
+      "layer": "L2",
+      "category": "animal",
+      "textPrompt": "一张有猫、猫咪、小猫的图片",
+      "aliases": ["猫咪", "猫猫", "小猫"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_dog",
+      "name": "狗",
+      "layer": "L2",
+      "category": "animal",
+      "textPrompt": "一张有狗、小狗、狗狗的图片",
+      "aliases": ["小狗", "狗狗", "汪汪"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_panda",
+      "name": "熊猫",
+      "layer": "L2",
+      "category": "animal",
+      "textPrompt": "一张有熊猫、大熊猫的图片",
+      "aliases": ["大熊猫", "滚滚"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_animal",
+      "name": "动物",
+      "layer": "L2",
+      "category": "animal",
+      "textPrompt": "一张有可爱动物的图片",
+      "aliases": ["小动物", "宠物"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_person",
+      "name": "人物",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张有人物、人脸的图片",
+      "aliases": ["人", "人脸", "真人"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_anime",
+      "name": "动漫",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张动漫风格、二次元风格的图片",
+      "aliases": ["二次元", "动画", "卡通"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_text",
+      "name": "文字梗",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张以文字、字幕、标语为主的图片",
+      "aliases": ["字幕", "配文", "文字"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_screenshot",
+      "name": "截图",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张聊天记录、手机屏幕截图的图片",
+      "aliases": ["聊天截图", "聊天记录", "屏幕截图"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_avatar",
+      "name": "头像",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张头像风格、大头贴风格的图片",
+      "aliases": ["大头贴", "头像图"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_emoji_symbol",
+      "name": "表情符号",
+      "layer": "L2",
+      "category": "emoji",
+      "textPrompt": "一张含有表情符号、颜文字、表情图标的图片",
+      "aliases": ["颜文字", "emoji", "表情图标"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_food",
+      "name": "食物",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张有食物、美食、好吃的的图片",
+      "aliases": ["美食", "干饭", "吃饭"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "obj_money",
+      "name": "钱",
+      "layer": "L2",
+      "category": "custom",
+      "textPrompt": "一张有钱、钞票、红包、发财的图片",
+      "aliases": ["钞票", "发财", "红包"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_doghead",
+      "name": "狗头",
+      "layer": "L3",
+      "category": "animal",
+      "textPrompt": "狗头表情包，一种用狗头表示阴阳怪气、嘲讽的网络梗",
+      "aliases": ["狗头保命", "狗头"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_pandahead",
+      "name": "熊猫头",
+      "layer": "L3",
+      "category": "animal",
+      "textPrompt": "熊猫头表情包，用熊猫脸配上各种文字的经典网络梗表情",
+      "aliases": ["熊猫人", "熊猫头"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_blackman_question",
+      "name": "黑人问号",
+      "layer": "L3",
+      "category": "emoji",
+      "textPrompt": "黑人问号脸表情包，表达疑惑、不解、莫名其妙的网络梗",
+      "aliases": ["问号脸", "疑惑脸"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_cracked",
+      "name": "裂开",
+      "layer": "L3",
+      "category": "emoji",
+      "textPrompt": "裂开表情包，表达心态崩溃、无语、受不了的网络梗表情",
+      "aliases": ["心态崩了", "崩了"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_dielaughing",
+      "name": "笑死",
+      "layer": "L3",
+      "category": "funny",
+      "textPrompt": "笑死表情包，表达太好笑、笑到不行的网络梗表情",
+      "aliases": ["笑不活了", "哈哈哈"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_broken_defense",
+      "name": "破防",
+      "layer": "L3",
+      "category": "emoji",
+      "textPrompt": "破防表情包，表达被戳中内心、绷不住了的网络梗",
+      "aliases": ["绷不住", "破防了"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_666",
+      "name": "666",
+      "layer": "L3",
+      "category": "funny",
+      "textPrompt": "666表情包，表达厉害、牛逼、点赞称赞的网络梗",
+      "aliases": ["牛逼", "厉害", "太强了"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_questionface",
+      "name": "问号脸",
+      "layer": "L3",
+      "category": "emoji",
+      "textPrompt": "问号脸表情包，表达疑惑、不解、一脸问号的网络梗",
+      "aliases": ["一脸问号", "疑惑"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_dog_sweat",
+      "name": "流汗黄豆",
+      "layer": "L3",
+      "category": "emoji",
+      "textPrompt": "流汗黄豆表情包，表达尴尬、无语、哭笑不得的网络梗",
+      "aliases": ["黄豆流汗", "汗"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_sitting_down",
+      "name": "躺平",
+      "layer": "L3",
+      "category": "funny",
+      "textPrompt": "躺平表情包，表达不想努力、摆烂、放弃抵抗的网络梗",
+      "aliases": ["摆烂", "躺平了"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    },
+    {
+      "id": "meme_dog_crazy",
+      "name": "疯狂动物",
+      "layer": "L3",
+      "category": "animal",
+      "textPrompt": "疯狂动物表情包，动物做出夸张表情的网络梗图",
+      "aliases": ["动物表情", "动物梗图"],
+      "weight": 1,
+      "minSimilarity": 0.22
+    }
+  ]
+}

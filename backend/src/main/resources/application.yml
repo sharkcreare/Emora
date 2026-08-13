@@ -1,0 +1,79 @@
+server:
+  port: 18080
+  # 仅本机访问（无鉴权，避免局域网内被他人调用）
+  address: 127.0.0.1
+
+spring:
+  application:
+    name: emoji-assistant-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/emoji_assistant?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql,classpath:db/data-real.sql
+      continue-on-error: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 2s
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.emojiassistant.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+minio:
+  endpoint: http://127.0.0.1:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket: emoji-assistant
+
+network-search:
+  # 网络图库搜索（本地不存图库，只保存这份配置）：
+  # 内置中文梗图库（ChineseBQB）无需 Key 开箱即用；
+  # 其余来源填入 API Key 并置 enabled=true 即启用；未配置/不可达时自动降级为本地搜索
+  enabled: true
+  limit: 100
+  timeout-ms: 4000
+  chinesebqb:
+    enabled: true
+  sogou:
+    enabled: true
+    id: "88888888"
+    key: "88888888"
+    base-url: https://cn.apihz.cn/api/img/apihzbqbsougou.php
+  baidu:
+    enabled: true
+    id: "88888888"
+    key: "88888888"
+    base-urls:
+      - http://101.35.2.25
+      - http://124.222.204.22
+      - http://101.34.207.105
+  mengya:
+    enabled: true
+  giphy:
+    # https://developers.giphy.com 免费申请
+    api-key: ""
+    base-url: https://api.giphy.com/v1/stickers
+    rating: g
+  tenor:
+    # https://tenor.com/gifapi 免费申请
+    api-key: ""
+    base-url: https://tenor.com/v2
+    content-filter: medium
+
+app:
+  # 桌面端单机使用；如需多端登录可接入真实用户体系
+  default-user-id: default-user

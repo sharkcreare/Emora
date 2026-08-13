@@ -1,0 +1,24 @@
+# dev profile：使用 H2 内存库（MySQL 兼容模式），无需安装 MySQL/Redis/MinIO
+# 启动方式：mvn spring-boot:run -Dspring-boot.run.profiles=dev
+server:
+  address: 127.0.0.1
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:emoji_assistant;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema-h2.sql
+      data-locations: classpath:db/data-h2.sql,classpath:db/data-real.sql
+  data:
+    redis:
+      # dev 下无 Redis 时自动降级直查数据库，无需配置
+      host: 127.0.0.1
+      port: 6379
+
+logging:
+  level:
+    com.emojiassistant: debug

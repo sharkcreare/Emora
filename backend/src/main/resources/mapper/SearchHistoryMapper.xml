@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emojiassistant.mapper.SearchHistoryMapper">
+
+    <!-- 最近搜索关键词：按 keyword 去重取最新，兼容 MySQL / H2 -->
+    <select id="selectRecent" resultType="com.emojiassistant.entity.SearchHistory">
+        SELECT keyword, MAX(create_time) AS create_time
+        FROM search_history
+        WHERE user_id = #{userId}
+        GROUP BY keyword
+        ORDER BY MAX(create_time) DESC
+        LIMIT #{limit}
+    </select>
+
+    <delete id="deleteByUser">
+        DELETE FROM search_history WHERE user_id = #{userId}
+    </delete>
+
+    <!-- 保留最近 keepCount 条，其余删除（MySQL 需多层子查询避免"不能修改目标表"） -->
+    <delete id="trimHistory">
+        DELETE FROM search_history
+        WHERE user_id = #{userId}
+          AND id NOT IN (
+            SELECT id FROM (
+                SELECT id FROM search_history
+                WHERE user_id = #{userId}
+                ORDER BY create_time DESC
+                LIMIT #{keepCount}
+            ) t
+          )
+    </delete>
+</mapper>

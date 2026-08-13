@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emojiassistant.mapper.RecentUseMapper">
+
+    <!-- 依赖 (user_id, emoji_id) 唯一键：存在则次数+1，不存在则插入 -->
+    <insert id="upsertUse">
+        INSERT INTO recent_use (user_id, emoji_id, use_count, last_used_at)
+        VALUES (#{userId}, #{emojiId}, 1, NOW())
+        ON DUPLICATE KEY UPDATE use_count = use_count + 1, last_used_at = NOW()
+    </insert>
+</mapper>

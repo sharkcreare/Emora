@@ -1,0 +1,29 @@
+appId: com.emojiassistant.desktop
+productName: EmojiAssistant
+directories:
+  output: 打包文件夹
+  buildResources: resources
+files:
+  - out/**
+  - resources/**
+# 内置 Spring Boot 后端 jar：app 启动时自动拉起，无需用户手动开终端
+# 需先执行 backend: mvn package（见 README 打包章节）
+extraResources:
+  - from: ../backend/target/emoji-assistant-backend-0.1.0.jar
+    to: backend/emoji-assistant-backend.jar
+  # 最小化 JRE（jlink 产物）：backend-runner 优先用它启动后端，实现免 Java 依赖
+  # 目录不存在（未执行打包.bat 的 jlink 步骤）时 electron-builder 会报错，请先跑打包.bat
+  - from: ../backend/target/jre
+    to: jre
+# nut.js 的原生二进制（.node/.dll）无法在 asar 内加载，必须解包
+asarUnpack:
+  - "**/node_modules/@nut-tree/**"
+win:
+  target:
+    - nsis
+  icon: resources/icon.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true

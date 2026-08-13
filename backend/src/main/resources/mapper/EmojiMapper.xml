@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emojiassistant.mapper.EmojiMapper">
+
+    <!-- 第一版搜索：MySQL 模糊匹配 name / tags / category，按热度排序 -->
+    <select id="searchByKeyword" resultType="com.emojiassistant.entity.Emoji">
+        SELECT * FROM emoji
+        WHERE name LIKE CONCAT('%', #{keyword}, '%')
+           OR tags LIKE CONCAT('%', #{keyword}, '%')
+           OR category LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY hot_score DESC, id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countByKeyword" resultType="long">
+        SELECT COUNT(*) FROM emoji
+        WHERE name LIKE CONCAT('%', #{keyword}, '%')
+           OR tags LIKE CONCAT('%', #{keyword}, '%')
+           OR category LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+
+    <select id="selectByCategory" resultType="com.emojiassistant.entity.Emoji">
+        SELECT * FROM emoji
+        WHERE category = #{category}
+        ORDER BY hot_score DESC, id DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countByCategory" resultType="long">
+        SELECT COUNT(*) FROM emoji WHERE category = #{category}
+    </select>
+
+    <select id="selectHot" resultType="com.emojiassistant.entity.Emoji">
+        SELECT * FROM emoji
+        ORDER BY hot_score DESC, id DESC
+        LIMIT #{limit}
+    </select>
+
+    <update id="incrementHotScore">
+        UPDATE emoji SET hot_score = hot_score + 1 WHERE id = #{id}
+    </update>
+
+    <!-- 最近使用：关联 recent_use 按最近使用时间倒序 -->
+    <select id="selectRecentByUser" resultType="com.emojiassistant.entity.Emoji">
+        SELECT e.* FROM emoji e
+        INNER JOIN recent_use r ON r.emoji_id = e.id AND r.user_id = #{userId}
+        ORDER BY r.last_used_at DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 收藏列表：关联 favorite 按收藏时间倒序 -->
+    <select id="selectFavoritesByUser" resultType="com.emojiassistant.entity.Emoji">
+        SELECT e.* FROM emoji e
+        INNER JOIN favorite f ON f.emoji_id = e.id AND f.user_id = #{userId}
+        ORDER BY f.create_time DESC
+    </select>
+
+    <!-- 热度时间衰减：保留 10 以内的小热度，其余 ×0.9（每日定时任务） -->
+    <update id="decayHotScore">
+        UPDATE emoji SET hot_score = FLOOR(hot_score * 0.9) WHERE hot_score > 10
+    </update>
+</mapper>
